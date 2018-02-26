@@ -1,61 +1,43 @@
-// Generic client.js file. Replace lines of code as needed. Below is simply
-// a generic template that allows a PEAN server to run.
+var app = angular.module('StudentApp', []);
 
-const app = angular.module('myApp', []);
+/** ---- CONTROLLER HERE ---- **/
+app.controller('StudentController', function(){
+  // studentList is a global variable array of student names
+  // don't overthink this, you don't need a $http request
+  // the array already exists right here
 
-const theConst = app.controller('theConstController', ['$http', function($http){
-  let self = this;
+  // Renee: "Using const self = this; just like I did in my weekend challenge"
+  const self = this;
 
-  self.newConst = { };
-  self.constArray = [ ];
+  console.log(studentList);
+  // @TODO: Write your controller code in here
 
-  self.addTheConst= function(newTheConst) {
-    $http({
-      method: 'POST',
-      url: '/urlhere',
-      data: { food: self.newTheConst}
-    }).then(function(response){
-      console.log('response', response.data);
-      self.newFood = {};
-      self.getFoods();
-    }).catch(function(error){
-      console.log('Messaging That Shows You Are Inside The Function And It Encountered An Error', error);
+  // Renee: "Having created the repo before the assignment was given to us,
+  // I already made it like a server so I decided to run with it.
+  // I know Hard Mode said to commit showing it was working before that, but
+  // as I continued down this path I decided to move forward this way.""
+  
+  // Renee: "The Controller will require a GET since the student array is
+  // not inside the client.js but instead in another file data.js"
+  // Array will remain empty of course.
+  self.studentList = [];
+
+  // Renee: "Let us GET the student array, shall we?"
+  self.getStudents = function() {
+    $http:({
+      // Renee: "Need to remember to use METHOD and not TYPE here."
+      method: 'GET',
+      url: '/students'
     })
-    console.log(self.foodArray);
-  }
-
-  self.deleteTheConst = function(food) {
-    $http({
-        method: 'DELETE',
-        url: `/urlhere/${theConst.id}`,
-        //data: { food: food } // optional
-      }).then(function(response){
-        console.log('response', response.data);
-        self.getFoods();
-      }).catch(function(error){
-        console.log('Messaging That Shows You Are Inside The Function And It Encountered An Error', error);
+      // Renee: "Here we will assign the response.data to the empty self.studentList
+      // array, now it won't be empty anymore and we can use it for our purposes."
+      .then(function(response) {
+        self.studentList = response.data;
       })
   }
 
-  self.getTheConst = function(){
-    $http({
-      method: 'GET',
-      url: '/urlhere'
-    }).then(function(response){
-      const theConst = response.data;
-      for (theConst of theConst){
-        theConst.column3 = food.column3.toString();
-        theConst.column4 = food.column4.toString();
-      }
-      self.constArray = response.data;
-    }).catch(function(error){
-      console.log('Messaging That Shows You Are Inside The Function And It Encountered An Error', error);
-    })
-  }
+  // Renee: "Now that we have our student list array, we need to call it like we have
+  // called previous arrays before."
+  self.getStudents();
 
-    self.editTheConst = function(theConst){
-    theConst.editing = true;
-}
-
-  self.getTheConsts();
-}]);
+});

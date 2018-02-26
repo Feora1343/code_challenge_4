@@ -1,4 +1,5 @@
 # Project Planning and Management
+Note: Created repo and file/folder structure before assignment was released.
 
 ## Base Mode
 - [ ] When page loads, user sees a `Display Students` button.
