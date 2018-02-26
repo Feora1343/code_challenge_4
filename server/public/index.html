@@ -20,7 +20,10 @@
         <button ng-click="sc.showList()" class="btn btn-primary btn-lg">Display Students</button>
       </div>
       <div class="row" ng-if="sc.hideList"> 
-        <!-- List of students -->
+          <button ng-click="sc.sortList('name')" class="sort-button btn btn-primary btn-lg">Sort</button>
+        <!-- Renee: Here you will find the list of students displayed on the DOM.
+        When the you click the Display Students button, then the sort button will appear and it will go back
+        and forth in sorting by name. -->
         <ul>
           <li ng-repeat="student in sc.studentList | orderBy : sc.orderDirection ">
             {{student.name}}

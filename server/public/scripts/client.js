@@ -52,4 +52,19 @@ app.controller('StudentController', ['$http', function($http){
   // However, I think if just continue building out the app it will fix
   // itself. Here I will make it sort when you press the button."
   self.orderDirection = 'name';
+
+  // Renee: "10 minutes left. Base and Pro are done, Hard just needs a
+  // button on the DOM and a function with a ng-click. Going to use
+  // a condition statement in a function to get what we need here done."
+  self.sortList = function(sortValue) {
+    if (self.orderDirection === sortValue) {
+      self.orderDirection = '-' + sortValue;
+    }
+    else if (self.orderDirection === '-' + sortValue) {
+      self.orderDirection = sortValue;
+    }
+    else {
+      self.orderDirection = sortValue;
+    }
+    }
 }])
