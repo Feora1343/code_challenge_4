@@ -2,16 +2,16 @@
 Note: Created repo and file/folder structure before assignment was released.
 
 ## Base Mode
-- [ ] When page loads, user sees a `Display Students` button.
-    - [ ] When `Display Students` button is clicked, it will display the array of students as a list.
-    - [ ] Array of Students is stored in data.js
+- [x] When page loads, user sees a `Display Students` button.
+    - [x] When `Display Students` button is clicked, it will display the array of students as a list.
+    - [x] Array of Students is stored in data.js
 
 ## Hard Mode
-- [ ] Add sorting button that will reverse the sorting from A to Z instead showing Z to A and back again if pressed again.
+- [x] Add sorting button that will reverse the sorting from A to Z instead showing Z to A and back again if pressed again.
 
 ## Pro Mode
-- [ ] Commit code if you haven't done so yet.
-- [ ] Move list of students to the server and make a `$http` request for the data.
+- [x] Commit code if you haven't done so yet.
+- [x] Move list of students to the server and make a `$http` request for the data.
 
 # Overview
 
